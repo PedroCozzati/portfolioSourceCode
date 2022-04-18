@@ -12,7 +12,29 @@ class AboutMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomNavBar(),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(kToolbarHeight * 1), // Set this height
+        child: Container(
+          color: Colors.black,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              CustomNavBar(),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(height: 5,width: 50,color: CustomColors.mainColor,),
+                  Container(height: 5,width: 50,color: CustomColors.mainColor,),
+                  Container(height: 5,width: 50,color: CustomColors.mainColor,),
+                  Container(height: 5,width: 50,color: CustomColors.thirdColor,),
+                  Container(height: 5,width: 50,color: CustomColors.mainColor,),
+                  Container(height: 5,width: 50,color: CustomColors.mainColor,),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
       body: Container(
         color: CustomColors.mainColor,
         height: double.maxFinite,
@@ -20,6 +42,7 @@ class AboutMobile extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(45.0),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const TextColumnAbout(),
@@ -27,7 +50,7 @@ class AboutMobile extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
-                    height: 225,
+                    height: 230,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
@@ -37,11 +60,11 @@ class AboutMobile extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Image.asset(
-                                "logo1.png",
+                                "assets/logo1.png",
                                 scale: 25,
                               ),
                               Image.asset(
-                                "logo1.png",
+                                "assets/logo1.png",
                                 scale: 25,
                               )
                             ],
@@ -53,11 +76,11 @@ class AboutMobile extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Image.asset(
-                                "logo1.png",
+                                "assets/logo1.png",
                                 scale: 25,
                               ),
                               Image.asset(
-                                "logo1.png",
+                                "assets/logo1.png",
                                 scale: 25,
                               )
                             ],
@@ -69,11 +92,11 @@ class AboutMobile extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Image.asset(
-                                "logo1.png",
+                                "assets/logo1.png",
                                 scale: 25,
                               ),
                               Image.asset(
-                                "logo1.png",
+                                "assets/logo1.png",
                                 scale: 25,
                               )
                             ],
@@ -85,11 +108,11 @@ class AboutMobile extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Image.asset(
-                                "logo1.png",
+                                "assets/logo1.png",
                                 scale: 25,
                               ),
                               Image.asset(
-                                "logo1.png",
+                                "assets/logo1.png",
                                 scale: 25,
                               )
                             ],
@@ -105,7 +128,7 @@ class AboutMobile extends StatelessWidget {
                         backgroundColor: CustomColors.thirdColor,
                         child:  const CircleAvatar(
                           radius: 55,
-                          backgroundImage: ExactAssetImage("profile3.png",scale: 10),
+                          backgroundImage: ExactAssetImage("assets/profile3.png",scale: 10),
 
                         ),
                       ),
@@ -115,8 +138,16 @@ class AboutMobile extends StatelessWidget {
                   ),
                   //Image.asset("profile.png",scale: 5,),child: Image.asset("profile.png",scale: 5,))
                 ],
-              )
+              ),
+              Center(child: Container(height: 20,width: 100,
+                child: Row(
+                  children: [
+                    Text("Feito com ",style: TextStyle(color: Colors.white),),
+                    Image.asset("assets/flutter-logo.png"),
+                  ],
+                ),)),
             ],
+
           ),
 
                   //Image.asset("profile.png",scale: 5,),child: Image.asset("profile.png",scale: 5,))

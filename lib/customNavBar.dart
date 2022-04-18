@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_1/colors.dart';
 
-import 'about/aboutMobile.dart';
-import 'home/homeMobile.dart';
+import 'about/about_mobile.dart';
+import 'home/home_mobile.dart';
 
-class CustomNavBar extends StatelessWidget implements PreferredSizeWidget {
+class CustomNavBar extends StatefulWidget implements PreferredSizeWidget {
   final double height;
 
   const CustomNavBar({
@@ -12,8 +12,24 @@ class CustomNavBar extends StatelessWidget implements PreferredSizeWidget {
     this.height = kToolbarHeight * 1,
   }) : super(key: key);
 
-  @override
   Size get preferredSize => Size.fromHeight(height);
+
+  @override
+  State<CustomNavBar> createState() => _CustomNavBarState();
+}
+
+class _CustomNavBarState extends State<CustomNavBar> {
+  @override
+Color selectColorIcon1 = CustomColors.secondaryColor;
+Color selectColorIcon2 = CustomColors.secondaryColor;
+Color selectColorIcon3 = CustomColors.secondaryColor;
+Color selectColorIcon4 = CustomColors.secondaryColor;
+  @override
+  void initState() {
+    // TODO: implement initState
+
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,12 +50,15 @@ class CustomNavBar extends StatelessWidget implements PreferredSizeWidget {
                 child: IconButton(
                   tooltip: "Inicio",
                   onPressed: () {
-                    Navigator.push(context,
+                    setState(() {
+                      selectColorIcon1 = CustomColors.thirdColor;
+                    });
+                    Navigator.pushReplacement(context,
                         MaterialPageRoute(builder: (context) => HomeMobile()));
                   },
                   icon: Icon(
                     Icons.home,
-                    color: CustomColors.secondaryColor,
+                    color: selectColorIcon1,
                   ),
                 ),
               ),
@@ -56,18 +75,22 @@ class CustomNavBar extends StatelessWidget implements PreferredSizeWidget {
                     )),
               ),
               Padding(
-                padding: const EdgeInsets.all(10.0),
+                padding: EdgeInsets.all(10.0),
                 child: IconButton(
                     tooltip: "Sobre",
                     onPressed: () {
-                      Navigator.push(
+                      setState(() {
+                        selectColorIcon3 = CustomColors.thirdColor;
+                      });
+                      Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
                               builder: (context) => AboutMobile()));
                     },
                     icon: Icon(
+
                       Icons.info,
-                      color: CustomColors.secondaryColor,
+                      color: selectColorIcon3,
                     )),
               ),
               Padding(

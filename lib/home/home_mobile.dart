@@ -8,6 +8,23 @@ import 'package:portfolio_1/home/textColumn.dart';
 
 import '../customNavBar.dart';
 
+class NoScalingAnimation extends FloatingActionButtonAnimator {
+  @override
+  Offset getOffset({required Offset begin, required Offset end, required double progress}) {
+    return end;
+  }
+
+  @override
+  Animation<double> getRotationAnimation({required Animation<double> parent}) {
+    return Tween<double>(begin: 0.0, end: 0.0).animate(parent);
+  }
+
+  @override
+  Animation<double> getScaleAnimation({required Animation<double> parent}) {
+    return Tween<double>(begin: 0.0, end: 0.0).animate(parent);
+  }
+}
+
 class HomeMobile extends StatefulWidget {
   const HomeMobile({Key? key}) : super(key: key);
 
@@ -19,7 +36,33 @@ class _HomeMobileState extends State<HomeMobile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:CustomNavBar(),
+      floatingActionButtonAnimator: NoScalingAnimation(),
+      appBar:
+      PreferredSize(
+        preferredSize: Size.fromHeight(kToolbarHeight * 1), // Set this height
+        child: Container(
+          color: Colors.black,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+    CustomNavBar(),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(height: 5,width: 50,color: CustomColors.mainColor,),
+                  Container(height: 5,width: 50,color: CustomColors.thirdColor,),
+                  Container(height: 5,width: 50,color: CustomColors.mainColor,),
+                  Container(height: 5,width: 50,color: CustomColors.mainColor,),
+                  Container(height: 5,width: 50,color: CustomColors.mainColor,),
+                  Container(height: 5,width: 50,color: CustomColors.mainColor,),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+
+
       body: Container(
         color: CustomColors.mainColor,
         height: double.maxFinite,
@@ -45,11 +88,11 @@ class _HomeMobileState extends State<HomeMobile> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Image.asset(
-                                "logo1.png",
+                                "assets/logo1.png",
                                 scale: 25,
                               ),
                               Image.asset(
-                                "flutter-logo.png",
+                                "assets/flutter-logo.png",
                                 scale: 15,
                               )
                             ],
@@ -62,11 +105,11 @@ class _HomeMobileState extends State<HomeMobile> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Image.asset(
-                                "html5.png",
+                                "assets/html5.png",
                                 scale: 55,
                               ),
                               Image.asset(
-                                "c.png",
+                                "assets/c.png",
                                 scale: 30,
                               )
                             ],
@@ -78,11 +121,11 @@ class _HomeMobileState extends State<HomeMobile> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Image.asset(
-                                "js.png",
+                                "assets/js.png",
                                 scale: 20,
                               ),
                               Image.asset(
-                                "css.png",
+                                "assets/css.png",
                                 scale: 50,
                               )
                             ],
@@ -94,11 +137,11 @@ class _HomeMobileState extends State<HomeMobile> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Image.asset(
-                                "py.png",
+                                "assets/py.png",
                                 scale: 12,
                               ),
                               Image.asset(
-                                "java-logo-3.png",
+                                "assets/java-logo-3.png",
                                 scale: 65,
                               )
                             ],
@@ -114,7 +157,7 @@ class _HomeMobileState extends State<HomeMobile> {
                         backgroundColor: CustomColors.thirdColor,
                         child:  const CircleAvatar(
                           radius: 55,
-                          backgroundImage: ExactAssetImage("profile3.png",scale: 10),
+                          backgroundImage: ExactAssetImage("assets/profile3.png",scale: 10),
 
                         ),
                       ),
@@ -129,7 +172,7 @@ class _HomeMobileState extends State<HomeMobile> {
               child: Row(
                 children: [
                   Text("Feito com ",style: TextStyle(color: Colors.white),),
-                  Image.asset("flutter-logo.png"),
+                  Image.asset("assets/flutter-logo.png"),
                 ],
               ),))
             ],

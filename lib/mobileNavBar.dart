@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_1/colors.dart';
 
-import 'home/homeMobile.dart';
+import 'home/home_mobile.dart';
 
 class MobileNavBar extends StatelessWidget implements PreferredSizeWidget {
   final double height;

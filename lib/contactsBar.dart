@@ -30,7 +30,7 @@ class _ContactsBarState extends State<ContactsBar> {
                   heroTag: 1,
                   onPressed: openLink,
                   child: Image(
-                    image: AssetImage("linkedin.jpg"),
+                    image: AssetImage("assets/linkedin.jpg"),
                     fit: BoxFit.fill,
                   ));
 
@@ -49,7 +49,7 @@ class _ContactsBarState extends State<ContactsBar> {
                   heroTag: 2,
                   onPressed: openLink,
                   child: Image(
-                    image: AssetImage("github.png"),
+                    image: AssetImage("assets/github.png"),
                     fit: BoxFit.fill,
                   ));
             },

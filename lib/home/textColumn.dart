@@ -14,7 +14,7 @@ class TextColumn extends StatelessWidget {
       children: [
         SizedBox(
           height: 25,
-          width: 130,
+          width: 135,
           child: Align(
             alignment: Alignment.centerLeft,
             child: AnimatedTextKit(
