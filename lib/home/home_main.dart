@@ -14,7 +14,7 @@ class _HomePageMainState extends State<HomePageMain> {
   @override
   Widget build(BuildContext context) {
     return ScreenTypeLayout(
-      mobile: HomeMobile(),
+      mobile: const HomeMobile(),
     );
     // tablet: HomeTab(),
     //

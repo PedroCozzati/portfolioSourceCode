@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio_1/customNavBar.dart';
-import 'package:portfolio_1/home/homeMain.dart';
+import 'package:portfolio_1/home/home_main.dart';
 
 void main() {
   runApp(const MainPage());
@@ -17,8 +16,8 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
+      //showPerformanceOverlay: true,
       home: HomePageMain(),
     );
   }
 }
-

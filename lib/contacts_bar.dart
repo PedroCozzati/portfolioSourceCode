@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/link.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class ContactsBar extends StatefulWidget {
   const ContactsBar({Key? key}) : super(key: key);
@@ -29,7 +28,7 @@ class _ContactsBarState extends State<ContactsBar> {
                   tooltip: "Ir para o meu perfil no linkedin",
                   heroTag: 1,
                   onPressed: openLink,
-                  child: Image(
+                  child: const Image(
                     image: AssetImage("assets/linkedin.jpg"),
                     fit: BoxFit.fill,
                   ));
@@ -48,7 +47,7 @@ class _ContactsBarState extends State<ContactsBar> {
                   tooltip: "Ir para o meu perfil no github",
                   heroTag: 2,
                   onPressed: openLink,
-                  child: Image(
+                  child: const Image(
                     image: AssetImage("assets/github.png"),
                     fit: BoxFit.fill,
                   ));

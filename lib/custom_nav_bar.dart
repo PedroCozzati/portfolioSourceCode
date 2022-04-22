@@ -13,11 +13,12 @@ class CustomNavBar extends StatefulWidget implements PreferredSizeWidget {
 
   const CustomNavBar({
     Key? key,
-    this.height = kToolbarHeight * 1.5,
+    this.height = kToolbarHeight * 1,
     required this.showHomeIndicator,
     required this.showAboutIndicator, required this.showProjectsIndicator, required this.showArticlesIndicator,
   }) : super(key: key);
 
+  @override
   Size get preferredSize => Size.fromHeight(height);
 
   @override
@@ -25,7 +26,6 @@ class CustomNavBar extends StatefulWidget implements PreferredSizeWidget {
 }
 
 class _CustomNavBarState extends State<CustomNavBar> {
-  @override
   Color selectColorIcon1 = CustomColors.secondaryColor;
   Color selectColorIcon2 = CustomColors.secondaryColor;
   Color selectColorIcon3 = CustomColors.secondaryColor;
@@ -65,7 +65,7 @@ class _CustomNavBarState extends State<CustomNavBar> {
                       Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => HomeMobile()));
+                              builder: (context) => const HomeMobile()));
                     },
                     icon: Icon(
                       Icons.home,
@@ -107,7 +107,7 @@ class _CustomNavBarState extends State<CustomNavBar> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.all(10.0),
+              padding: const EdgeInsets.all(10.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
@@ -118,7 +118,7 @@ class _CustomNavBarState extends State<CustomNavBar> {
                           selectColorIcon3 = CustomColors.thirdColor;
                         });
                         Navigator.pushReplacement(context,
-                            MaterialPageRoute(builder: (context) => AboutMobile()));
+                            MaterialPageRoute(builder: (context) => const AboutMobile()));
                       },
                       icon: Icon(
                         Icons.info,

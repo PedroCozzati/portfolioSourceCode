@@ -1,12 +1,11 @@
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:portfolio_1/colors.dart';
-import 'package:portfolio_1/contactsBar.dart';
-import 'package:portfolio_1/home/homeStrings.dart';
-import 'package:portfolio_1/home/textColumn.dart';
+import 'package:portfolio_1/contacts_bar.dart';
+import 'package:portfolio_1/home/text_column.dart';
 
-import '../customNavBar.dart';
+import '../custom_nav_bar.dart';
 
 class NoScalingAnimation extends FloatingActionButtonAnimator {
   @override
@@ -38,7 +37,7 @@ class _HomeMobileState extends State<HomeMobile> {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButtonAnimator: NoScalingAnimation(),
-      appBar: CustomNavBar(
+      appBar: const CustomNavBar(
         showHomeIndicator: true,
         showAboutIndicator: false,
         showProjectsIndicator: false,
@@ -58,12 +57,12 @@ class _HomeMobileState extends State<HomeMobile> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Container(
+                  SizedBox(
                     height: 230,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        Container(
+                        SizedBox(
                           width: 120,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -79,10 +78,10 @@ class _HomeMobileState extends State<HomeMobile> {
                             ],
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 5,
                         ),
-                        Container(
+                        SizedBox(
                           width: 120,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -98,7 +97,7 @@ class _HomeMobileState extends State<HomeMobile> {
                             ],
                           ),
                         ),
-                        Container(
+                        SizedBox(
                           width: 120,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -114,7 +113,7 @@ class _HomeMobileState extends State<HomeMobile> {
                             ],
                           ),
                         ),
-                        Container(
+                        SizedBox(
                           width: 120,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -144,22 +143,22 @@ class _HomeMobileState extends State<HomeMobile> {
                               ExactAssetImage("assets/profile3.png", scale: 10),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
-                      ContactsBar(),
+                      const ContactsBar(),
                     ],
                   ),
                   //Image.asset("profile.png",scale: 5,),child: Image.asset("profile.png",scale: 5,))
                 ],
               ),
               Center(
-                  child: Container(
+                  child: SizedBox(
                 height: 20,
                 width: 100,
                 child: Row(
                   children: [
-                    Text(
+                    const Text(
                       "Feito com ",
                       style: TextStyle(color: Colors.white),
                     ),

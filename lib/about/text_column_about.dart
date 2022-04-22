@@ -1,9 +1,10 @@
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../colors.dart';
-import 'aboutStrings.dart';
+import 'about_strings.dart';
 
 class TextColumnAbout extends StatelessWidget {
   const TextColumnAbout({Key? key}) : super(key: key);

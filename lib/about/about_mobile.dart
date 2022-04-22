@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio_1/about/textColumnAbout.dart';
-import 'package:portfolio_1/contactsBar.dart';
+import 'package:portfolio_1/about/text_column_about.dart';
+import 'package:portfolio_1/contacts_bar.dart';
 
 import '../colors.dart';
-import '../customNavBar.dart';
-import '../home/textColumn.dart';
+import '../custom_nav_bar.dart';
 
 class AboutMobile extends StatelessWidget {
   const AboutMobile({Key? key}) : super(key: key);
@@ -12,7 +11,7 @@ class AboutMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomNavBar(
+      appBar: const CustomNavBar(
         showAboutIndicator: true,
         showHomeIndicator: false,
         showArticlesIndicator: false,
@@ -32,12 +31,12 @@ class AboutMobile extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Container(
+                  SizedBox(
                     height: 230,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        Container(
+                        SizedBox(
                           width: 120,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -53,7 +52,7 @@ class AboutMobile extends StatelessWidget {
                             ],
                           ),
                         ),
-                        Container(
+                        SizedBox(
                           width: 120,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -69,7 +68,7 @@ class AboutMobile extends StatelessWidget {
                             ],
                           ),
                         ),
-                        Container(
+                        SizedBox(
                           width: 120,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -85,7 +84,7 @@ class AboutMobile extends StatelessWidget {
                             ],
                           ),
                         ),
-                        Container(
+                        SizedBox(
                           width: 120,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -115,22 +114,22 @@ class AboutMobile extends StatelessWidget {
                               ExactAssetImage("assets/profile3.png", scale: 10),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
-                      ContactsBar(),
+                      const ContactsBar(),
                     ],
                   ),
                   //Image.asset("profile.png",scale: 5,),child: Image.asset("profile.png",scale: 5,))
                 ],
               ),
               Center(
-                  child: Container(
+                  child: SizedBox(
                 height: 20,
                 width: 100,
                 child: Row(
                   children: [
-                    Text(
+                    const Text(
                       "Feito com ",
                       style: TextStyle(color: Colors.white),
                     ),

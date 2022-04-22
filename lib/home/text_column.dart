@@ -1,11 +1,22 @@
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../colors.dart';
-import 'homeStrings.dart';
+import 'home_strings.dart';
 
 class TextColumn extends StatelessWidget {
   const TextColumn({Key? key}) : super(key: key);
+
+  MediaQueryData queryData(BuildContext context) {
+    MediaQueryData mediaQuery = MediaQuery.of(context);
+    return mediaQuery;
+  }
+
+  double rHeight (BuildContext context)=> queryData(context).size.height;
+  double rWidth(BuildContext context)=> queryData(context).size.width;
+  double rFont(BuildContext context)=> queryData(context).size.width;
 
   @override
   Widget build(BuildContext context) {
@@ -13,8 +24,8 @@ class TextColumn extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(
-          height: 25,
-          width: 135,
+          height: rHeight(context)/20,
+          width: rWidth(context)/2.4,
           child: Align(
             alignment: Alignment.centerLeft,
             child: AnimatedTextKit(
@@ -25,7 +36,7 @@ class TextColumn extends StatelessWidget {
                     textStyle: TextStyle(
                       letterSpacing: 2,
                       fontWeight: FontWeight.bold,
-                      fontSize: 20,
+                      fontSize: rFont(context)/15.5,
                       color: CustomColors.secondaryColor,
                     )),
               ],
@@ -33,21 +44,21 @@ class TextColumn extends StatelessWidget {
           ),
         ),
         SizedBox(
-          height: 20,
-          width: 280,
+          height: rHeight(context)/40,
+          width: rWidth(context)/1,
           child: RichText(
             text: TextSpan(
                 text: HomeStrings.title2,
                 style: TextStyle(
                   color: CustomColors.secondaryColor,
-                  fontSize: 20,
+                  fontSize: rFont(context)/18,
                 ),
                 children: <TextSpan>[
                   TextSpan(
                       text: HomeStrings.title3,
                       style: TextStyle(
                         color: CustomColors.thirdColor,
-                        fontSize: 20,
+                        fontSize: rFont(context)/18,
                         fontWeight: FontWeight.bold
                       )),
                   // child: Text(
@@ -62,29 +73,31 @@ class TextColumn extends StatelessWidget {
                 ]),
           ),
         ),
-        const SizedBox(
-          height: 50,
+       SizedBox(
+          height: rHeight(context)/30,
         ),
         SizedBox(
-          height: 80,
-          width: 280,
+          height: rHeight(context)/10,
+          width: rWidth(context)/1,
           child: Text(
             HomeStrings.subTitle,
             style: TextStyle(
-              height: 1.5,
-              fontSize: 12,
+              height: rHeight(context)/600,
+              fontSize: rFont(context)/30,
               fontWeight: FontWeight.bold,
               color: CustomColors.secondaryColor,
             ),
           ),
         ),
+
         SizedBox(
-          height: 50,
-          width: 150,
+          height: rHeight(context)/15,
+          width: rWidth(context)/2.5,
           child: Text(
             HomeStrings.languages,
             style: TextStyle(
-              fontSize: 12,
+              height: rHeight(context)/600,
+              fontSize: rFont(context)/30,
               fontWeight: FontWeight.bold,
               color: CustomColors.secondaryColor,
             ),
