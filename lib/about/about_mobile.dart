@@ -12,28 +12,11 @@ class AboutMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(kToolbarHeight * 1), // Set this height
-        child: Container(
-          color: Colors.black,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              CustomNavBar(),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(height: 5,width: 50,color: CustomColors.mainColor,),
-                  Container(height: 5,width: 50,color: CustomColors.mainColor,),
-                  Container(height: 5,width: 50,color: CustomColors.mainColor,),
-                  Container(height: 5,width: 50,color: CustomColors.thirdColor,),
-                  Container(height: 5,width: 50,color: CustomColors.mainColor,),
-                  Container(height: 5,width: 50,color: CustomColors.mainColor,),
-                ],
-              ),
-            ],
-          ),
-        ),
+      appBar: CustomNavBar(
+        showAboutIndicator: true,
+        showHomeIndicator: false,
+        showArticlesIndicator: false,
+        showProjectsIndicator: false,
       ),
       body: Container(
         color: CustomColors.mainColor,
@@ -126,32 +109,39 @@ class AboutMobile extends StatelessWidget {
                       CircleAvatar(
                         radius: 60,
                         backgroundColor: CustomColors.thirdColor,
-                        child:  const CircleAvatar(
+                        child: const CircleAvatar(
                           radius: 55,
-                          backgroundImage: ExactAssetImage("assets/profile3.png",scale: 10),
-
+                          backgroundImage:
+                              ExactAssetImage("assets/profile3.png", scale: 10),
                         ),
                       ),
-                      SizedBox(height: 20,),
+                      SizedBox(
+                        height: 20,
+                      ),
                       ContactsBar(),
                     ],
                   ),
                   //Image.asset("profile.png",scale: 5,),child: Image.asset("profile.png",scale: 5,))
                 ],
               ),
-              Center(child: Container(height: 20,width: 100,
+              Center(
+                  child: Container(
+                height: 20,
+                width: 100,
                 child: Row(
                   children: [
-                    Text("Feito com ",style: TextStyle(color: Colors.white),),
+                    Text(
+                      "Feito com ",
+                      style: TextStyle(color: Colors.white),
+                    ),
                     Image.asset("assets/flutter-logo.png"),
                   ],
-                ),)),
+                ),
+              )),
             ],
-
           ),
 
-                  //Image.asset("profile.png",scale: 5,),child: Image.asset("profile.png",scale: 5,))
-
+          //Image.asset("profile.png",scale: 5,),child: Image.asset("profile.png",scale: 5,))
         ),
       ),
     );
