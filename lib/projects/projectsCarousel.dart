@@ -12,7 +12,7 @@ class ProjectsCarousel extends StatefulWidget {
   _ProjectsCarouselState createState() => _ProjectsCarouselState();
 }
 
-List carouselImage = ["1.png", "7676767.jpg", "github.png"];
+List carouselImage = ["zap.png", "pokedex.jpg", "github.png"];
 List links = [
   "https://github.com/PedroCozzati/flutter_whatsapp",
   "https://github.com/PedroCozzati/pokedexFlutter",
@@ -47,6 +47,8 @@ class _ProjectsCarouselState extends State<ProjectsCarousel> {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           Container(
+                            height: ResponsiveSizes.rHeight(context) / 4,
+                            width: ResponsiveSizes.rWidth(context) / 2,
                             child: Image.asset(
                               carouselImage[itemIndex],
                               fit: BoxFit.cover,
@@ -60,7 +62,8 @@ class _ProjectsCarouselState extends State<ProjectsCarousel> {
                   }),
           options: CarouselOptions(
             height: ResponsiveSizes.rHeight(context) / 1,
-            autoPlay: false,
+            autoPlay: true,
+            autoPlayInterval: Duration(seconds: 3),
             enlargeCenterPage: true,
             initialPage: 0,
           ),

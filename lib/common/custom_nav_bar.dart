@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_1/about/about_main.dart';
 import 'package:portfolio_1/common/colors.dart';
+import 'package:portfolio_1/home/home_main.dart';
+import 'package:portfolio_1/projects/projects_main.dart';
 import 'package:portfolio_1/projects/projects_mobile.dart';
 
 import '../about/about_mobile.dart';
@@ -66,7 +69,7 @@ class _CustomNavBarState extends State<CustomNavBar> {
                       Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const HomeMobile()));
+                              builder: (context) => const HomePageMain()));
                     },
                     icon: Icon(
                       Icons.home,
@@ -95,7 +98,7 @@ class _CustomNavBarState extends State<CustomNavBar> {
                           selectColorIcon2 = CustomColors.thirdColor;
                         });
                         Navigator.pushReplacement(context,
-                            MaterialPageRoute(builder: (context) => const ProjectsMobile()));
+                            MaterialPageRoute(builder: (context) => const ProjectsPageMain()));
                       },
                       icon: Icon(
                         Icons.phone_android_sharp,
@@ -123,7 +126,7 @@ class _CustomNavBarState extends State<CustomNavBar> {
                           selectColorIcon3 = CustomColors.thirdColor;
                         });
                         Navigator.pushReplacement(context,
-                            MaterialPageRoute(builder: (context) => const AboutMobile()));
+                            MaterialPageRoute(builder: (context) => const AboutPageMain()));
                       },
                       icon: Icon(
                         Icons.info,
