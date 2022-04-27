@@ -18,11 +18,7 @@ List links = [
   "https://github.com/PedroCozzati/pokedexFlutter",
   "Em breve...",
 ];
-List texts = [
-  "Flutter Whatsapp",
-  "Pokedex",
-  "+ em breve"
-];
+List texts = ["Flutter Whatsapp", "Pokedex", "+ em breve"];
 
 class _ProjectsCarouselState extends State<ProjectsCarousel> {
   @override
@@ -33,29 +29,29 @@ class _ProjectsCarouselState extends State<ProjectsCarousel> {
         width: ResponsiveSizes.rWidth(context) / 2.7,
         child: CarouselSlider.builder(
           itemCount: carouselImage.length,
-          itemBuilder: (BuildContext context, int itemIndex,
-              int pageView) =>
+          itemBuilder: (BuildContext context, int itemIndex, int pageView) =>
               Link(
-                  uri: Uri.parse(
-                      links[itemIndex]),
+                  uri: Uri.parse(links[itemIndex]),
                   target: LinkTarget.blank,
-                  builder:
-                      (BuildContext ctx, FollowLink? openLink) {
+                  builder: (BuildContext ctx, FollowLink? openLink) {
                     return InkWell(
                       onTap: openLink,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           Container(
-                            height: ResponsiveSizes.rHeight(context) / 4,
-                            width: ResponsiveSizes.rWidth(context) / 2,
-                            child: Image.asset(
-                              carouselImage[itemIndex],
-                              fit: BoxFit.cover,
-                              width: double.infinity,
-                            ),
-                          ),
-                          Container(child: Text(texts[itemIndex],style: TextStyle(color: Colors.white,fontSize: 14),)),
+                              height: ResponsiveSizes.rHeight(context) / 4,
+                              width: ResponsiveSizes.rWidth(context) / 2,
+                              child: Image(
+                                image: AssetImage(
+                                  carouselImage[itemIndex],
+                                ),
+                              )),
+                          Container(
+                              child: Text(
+                            texts[itemIndex],
+                            style: TextStyle(color: Colors.white, fontSize: 14),
+                          )),
                         ],
                       ),
                     );
