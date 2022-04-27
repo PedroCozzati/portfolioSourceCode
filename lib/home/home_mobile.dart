@@ -1,11 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:portfolio_1/colors.dart';
-import 'package:portfolio_1/contacts_bar.dart';
-import 'package:portfolio_1/home/text_column.dart';
+import 'package:portfolio_1/common/TextColumn.dart';
+import 'package:portfolio_1/common/colors.dart';
+import 'package:portfolio_1/common/contacts_bar.dart';
+import 'package:portfolio_1/common/responsiveSizes.dart';
+import 'package:portfolio_1/home/home_strings.dart';
 
-import '../custom_nav_bar.dart';
+import '../common/custom_nav_bar.dart';
 
 class NoScalingAnimation extends FloatingActionButtonAnimator {
   @override
@@ -53,78 +54,89 @@ class _HomeMobileState extends State<HomeMobile> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const TextColumn(),
+              TextColumn(
+                title: HomeStrings.title,
+                subTitle: HomeStrings.title2,
+                colorText: HomeStrings.title3,
+                body1: HomeStrings.subTitle,
+                body4: HomeStrings.languages,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   SizedBox(
-                    height: 230,
+                    height: ResponsiveSizes.rHeight(context)/3.5,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         SizedBox(
-                          width: 120,
+                          width: ResponsiveSizes.rWidth(context)/3.5,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Image.asset(
                                 "assets/logo1.png",
-                                scale: 25,
+                                width: ResponsiveSizes.rWidth(context)/10,
+                                height: ResponsiveSizes.rWidth(context)/10,
                               ),
                               Image.asset(
                                 "assets/flutter-logo.png",
-                                scale: 15,
+                                width: ResponsiveSizes.rWidth(context)/10,
+                                height: ResponsiveSizes.rWidth(context)/10,
                               )
                             ],
                           ),
                         ),
-                        const SizedBox(
-                          height: 5,
-                        ),
                         SizedBox(
-                          width: 120,
+                          width: ResponsiveSizes.rWidth(context)/3.5,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Image.asset(
                                 "assets/html5.png",
-                                scale: 55,
+                                width: ResponsiveSizes.rWidth(context)/10,
+                                height: ResponsiveSizes.rWidth(context)/10,
                               ),
                               Image.asset(
                                 "assets/c.png",
-                                scale: 30,
+                                width: ResponsiveSizes.rWidth(context)/10,
+                                height: ResponsiveSizes.rWidth(context)/10,
                               )
                             ],
                           ),
                         ),
                         SizedBox(
-                          width: 120,
+                          width: ResponsiveSizes.rWidth(context)/3.5,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Image.asset(
                                 "assets/js.png",
-                                scale: 20,
+                                width: ResponsiveSizes.rWidth(context)/10,
+                                height: ResponsiveSizes.rWidth(context)/10,
                               ),
                               Image.asset(
                                 "assets/css.png",
-                                scale: 50,
+                                width: ResponsiveSizes.rWidth(context)/10,
+                                height: ResponsiveSizes.rWidth(context)/10,
                               )
                             ],
                           ),
                         ),
                         SizedBox(
-                          width: 120,
+                          width: ResponsiveSizes.rWidth(context)/3.5,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Image.asset(
                                 "assets/py.png",
-                                scale: 12,
+                                width: ResponsiveSizes.rWidth(context)/10,
+                                height: ResponsiveSizes.rWidth(context)/10,
                               ),
                               Image.asset(
                                 "assets/java-logo-3.png",
-                                scale: 65,
+                                width: ResponsiveSizes.rWidth(context)/10,
+                                height: ResponsiveSizes.rWidth(context)/10,
                               )
                             ],
                           ),
@@ -135,12 +147,12 @@ class _HomeMobileState extends State<HomeMobile> {
                   Column(
                     children: [
                       CircleAvatar(
-                        radius: 60,
+                        radius: ResponsiveSizes.rWidth(context)/7.5,
                         backgroundColor: CustomColors.thirdColor,
-                        child: const CircleAvatar(
-                          radius: 55,
+                        child: CircleAvatar(
+                          radius: ResponsiveSizes.rWidth(context)/8,
                           backgroundImage:
-                              ExactAssetImage("assets/profile3.png", scale: 10),
+                              const ExactAssetImage("assets/profile3.png"),
                         ),
                       ),
                       const SizedBox(
@@ -154,13 +166,17 @@ class _HomeMobileState extends State<HomeMobile> {
               ),
               Center(
                   child: SizedBox(
-                height: 20,
-                width: 100,
+                height: ResponsiveSizes.rHeight(context)/20,
+                width: ResponsiveSizes.rWidth(context)/1,
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text(
-                      "Feito com ",
-                      style: TextStyle(color: Colors.white),
+                    Center(
+                      child:  Text(
+                        "Feito com ",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(color: Colors.white,fontSize: ResponsiveSizes.rFont(context)/30),
+                      ),
                     ),
                     Image.asset("assets/flutter-logo.png"),
                   ],

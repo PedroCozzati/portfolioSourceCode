@@ -1,13 +1,16 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:portfolio_1/about/about_strings.dart';
+import 'package:portfolio_1/common/TextColumn.dart';
 import 'package:portfolio_1/common/colors.dart';
 import 'package:portfolio_1/common/contacts_bar.dart';
-import 'package:portfolio_1/home/text_column.dart';
+import 'package:portfolio_1/common/responsiveSizes.dart';
+import 'package:portfolio_1/home/home_strings.dart';
+import 'package:portfolio_1/projects/projectColumn.dart';
+import 'package:portfolio_1/projects/projects_strings.dart';
+import 'package:url_launcher/link.dart';
 
-import '../common/TextColumn.dart';
 import '../common/custom_nav_bar.dart';
-import '../common/responsiveSizes.dart';
 
 class NoScalingAnimation extends FloatingActionButtonAnimator {
   @override
@@ -27,22 +30,49 @@ class NoScalingAnimation extends FloatingActionButtonAnimator {
   }
 }
 
-class AboutMobile extends StatefulWidget {
-  const AboutMobile({Key? key}) : super(key: key);
+class ProjectsMobile extends StatefulWidget {
+  const ProjectsMobile({Key? key}) : super(key: key);
 
   @override
-  _AboutMobileState createState() => _AboutMobileState();
+  _ProjectsMobileState createState() => _ProjectsMobileState();
 }
 
-class _AboutMobileState extends State<AboutMobile> {
+class _ProjectsMobileState extends State<ProjectsMobile> {
+  final String _url5 = "https://github.com/PedroCozzati/flutter_whatsapp";
+  final String _errorImage =
+      "https://i.ytimg.com/vi/z8wrRRR7_qU/maxresdefault.jpg";
+  List carouselImage = ["github.png", "", ""];
+  List links = [
+    "https://github.com/PedroCozzati/flutter_whatsapp",
+    "https://github.com/PedroCozzati/flutter_whatsapp",
+    "https://github.com/PedroCozzati/flutter_whatsapp",
+    "https://github.com/PedroCozzati/flutter_whatsapp",
+    "https://github.com/PedroCozzati/flutter_whatsapp",
+  ];
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  // bool _getUrlValid(String url) {
+  //   bool _isUrlValid = AnyLinkPreview.isValidLink(
+  //     url,
+  //     protocols: ['http', 'https'],
+  //     hostWhitelist: ['https://youtube.com/'],
+  //     hostBlacklist: ['https://facebook.com/'],
+  //   );
+  //   return _isUrlValid;
+  // }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButtonAnimator: NoScalingAnimation(),
       appBar: const CustomNavBar(
         showHomeIndicator: false,
-        showAboutIndicator: true,
-        showProjectsIndicator: false,
+        showAboutIndicator: false,
+        showProjectsIndicator: true,
         showArticlesIndicator: false,
       ),
       body: Container(
@@ -55,52 +85,15 @@ class _AboutMobileState extends State<AboutMobile> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              TextColumn(
-                title: AboutStrings.titleAnimated,
-                subTitle:"" ,
-                colorText:"" ,
-                body1: AboutStrings.subtitle,
-                body2: AboutStrings.sub2,
-                body3: AboutStrings.sub3,
+              ProjectColumn(
+                title: ProjectsStrings.titleAnimated,
+                subTitle: ProjectsStrings.subtitle,
               ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SizedBox(
-                    height: ResponsiveSizes.rHeight(context)/3.5,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        SizedBox(
-                          width: ResponsiveSizes.rWidth(context)/3.5,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Image.asset(
-                                "assets/form.png",
-                                width: ResponsiveSizes.rWidth(context)/10,
-                                height: ResponsiveSizes.rWidth(context)/10,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
                   Column(
                     children: [
-                      CircleAvatar(
-                        radius: ResponsiveSizes.rWidth(context)/7.5,
-                        backgroundColor: CustomColors.thirdColor,
-                        child: CircleAvatar(
-                          radius: ResponsiveSizes.rWidth(context)/8,
-                          backgroundImage:
-                          const ExactAssetImage("assets/profile3.png"),
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
                       const ContactsBar(),
                     ],
                   ),

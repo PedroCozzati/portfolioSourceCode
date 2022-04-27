@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio_1/colors.dart';
+import 'package:portfolio_1/common/colors.dart';
+import 'package:portfolio_1/projects/projects_mobile.dart';
 
-import 'about/about_mobile.dart';
-import 'home/home_mobile.dart';
+import '../about/about_mobile.dart';
+import '../home/home_mobile.dart';
 
 class CustomNavBar extends StatefulWidget implements PreferredSizeWidget {
   final double height;
@@ -13,7 +14,7 @@ class CustomNavBar extends StatefulWidget implements PreferredSizeWidget {
 
   const CustomNavBar({
     Key? key,
-    this.height = kToolbarHeight * 1,
+    this.height = kToolbarHeight * 1.25,
     required this.showHomeIndicator,
     required this.showAboutIndicator, required this.showProjectsIndicator, required this.showArticlesIndicator,
   }) : super(key: key);
@@ -90,10 +91,14 @@ class _CustomNavBarState extends State<CustomNavBar> {
                   IconButton(
                       tooltip: "Projetos",
                       onPressed: () {
-                        Navigator.defaultRouteName;
+                        setState(() {
+                          selectColorIcon2 = CustomColors.thirdColor;
+                        });
+                        Navigator.pushReplacement(context,
+                            MaterialPageRoute(builder: (context) => const ProjectsMobile()));
                       },
                       icon: Icon(
-                        Icons.menu,
+                        Icons.phone_android_sharp,
                         color: CustomColors.secondaryColor,
                       )),
                   widget.showProjectsIndicator
@@ -134,28 +139,28 @@ class _CustomNavBarState extends State<CustomNavBar> {
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  IconButton(
-                      tooltip: "Artigo",
-                      onPressed: () {},
-                      icon: Icon(
-                        Icons.menu,
-                        color: CustomColors.secondaryColor,
-                      )),
-                  widget.showArticlesIndicator
-                      ? Container(
-                    width: 25,
-                    height: 5,
-                    color: CustomColors.thirdColor,
-                  )
-                      : Container()
-                ],
-              ),
-            ),
+            // Padding(
+            //   padding: const EdgeInsets.all(10.0),
+            //   child: Column(
+            //     mainAxisAlignment: MainAxisAlignment.end,
+            //     children: [
+            //       IconButton(
+            //           tooltip: "Artigo",
+            //           onPressed: () {},
+            //           icon: Icon(
+            //             Icons.menu,
+            //             color: CustomColors.secondaryColor,
+            //           )),
+            //       widget.showArticlesIndicator
+            //           ? Container(
+            //         width: 25,
+            //         height: 5,
+            //         color: CustomColors.thirdColor,
+            //       )
+            //           : Container()
+            //     ],
+            //   ),
+            // ),
           ],
         ),
       )

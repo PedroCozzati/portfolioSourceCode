@@ -4,12 +4,28 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:portfolio_1/common/responsiveSizes.dart';
+import 'package:portfolio_1/projects/projectsCarousel.dart';
 
 import '../common/colors.dart';
-import 'home_strings.dart';
 
-class TextColumnold extends StatelessWidget {
-  const TextColumnold({Key? key}) : super(key: key);
+class ProjectColumn extends StatelessWidget {
+  const ProjectColumn(
+      {Key? key,
+      required this.title,
+      this.subTitle,
+      this.colorText,
+      this.body1,
+      this.body2,
+      this.body3,
+      this.body4})
+      : super(key: key);
+  final String title;
+  final String? subTitle;
+  final String? colorText;
+  final String? body1;
+  final String? body2;
+  final String? body3;
+  final String? body4;
 
   Widget _typeWriter(BuildContext context) {
     return SizedBox(
@@ -23,7 +39,7 @@ class TextColumnold extends StatelessWidget {
             repeatForever: true,
             animatedTexts: [
               TypewriterAnimatedText(
-                'Bem vindo!',
+                title,
                 curve: Curves.easeIn,
                 speed: const Duration(milliseconds: 100),
                 textStyle: TextStyle(
@@ -57,22 +73,26 @@ class TextColumnold extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
+              height: ResponsiveSizes.rHeight(context) / 60,
+            ),
+            SizedBox(
               height: ResponsiveSizes.rHeight(context) / 15,
               width: ResponsiveSizes.rWidth(context) / 1,
               child: RichText(
                 text: TextSpan(
-                    text: HomeStrings.title2,
+                    text: subTitle,
                     style: TextStyle(
                       color: CustomColors.secondaryColor,
-                      fontSize: ResponsiveSizes.rFont(context) / 18,
+                      fontSize: ResponsiveSizes.rFont(context) / 30,
                     ),
                     children: <TextSpan>[
                       TextSpan(
-                          text: HomeStrings.title3,
+                          text: colorText,
                           style: TextStyle(
-                              color: CustomColors.thirdColor,
-                              fontSize: ResponsiveSizes.rFont(context) / 18,
-                              fontWeight: FontWeight.bold,)),
+                            color: CustomColors.thirdColor,
+                            fontSize: ResponsiveSizes.rFont(context) / 18,
+                            fontWeight: FontWeight.bold,
+                          )),
                       // child: Text(
                       //   HomeStrings.title2,
                       //   style: TextStyle(
@@ -88,31 +108,17 @@ class TextColumnold extends StatelessWidget {
             SizedBox(
               height: ResponsiveSizes.rHeight(context) / 30,
             ),
-            SizedBox(
-              height: ResponsiveSizes.rHeight(context) / 10,
-              width: ResponsiveSizes.rWidth(context) / 1,
-              child: Text(
-                HomeStrings.subTitle,
-                style: TextStyle(
-                  height: ResponsiveSizes.rHeight(context) / 600,
-                  fontSize: ResponsiveSizes.rFont(context) / 30,
-                  fontWeight: FontWeight.bold,
-                  color: CustomColors.secondaryColor,
+            Center(
+              child: FittedBox(
+                fit: BoxFit.fitWidth,
+                child: SizedBox(
+                  height: ResponsiveSizes.rHeight(context)/2.4,
+                  child: ProjectsCarousel(),
                 ),
               ),
             ),
             SizedBox(
-              height: ResponsiveSizes.rHeight(context) / 15,
-              width: ResponsiveSizes.rWidth(context) / 2.5,
-              child: Text(
-                HomeStrings.languages,
-                style: TextStyle(
-                  height: ResponsiveSizes.rHeight(context) / 600,
-                  fontSize: ResponsiveSizes.rFont(context) / 30,
-                  fontWeight: FontWeight.bold,
-                  color: CustomColors.secondaryColor,
-                ),
-              ),
+              height: ResponsiveSizes.rHeight(context) / 80,
             ),
           ],
         ),

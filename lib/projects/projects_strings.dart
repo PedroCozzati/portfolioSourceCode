@@ -1,8 +1,8 @@
-class AboutStrings {
-  static String titleAnimated = "Informações";
+class ProjectsStrings {
+  static String titleAnimated = "Projetos";
   static String title = " sobre mim";
   static String subtitle =
-      "Tenho 20 anos, sou formado como técnico em eletroeletrônica pela ETEC-Pirituba";
+      "Estou desenvolvendo alguns projetos em Flutter, uma maneira prática para aplicar alguns conceitos";
 
   static String sub2 =
       "Estou cursando análise e desenvolvimento de sistemas na FATEC-SP, atualmente estou no 4° Semestre";
